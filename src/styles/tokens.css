@@ -1,0 +1,42 @@
+/* Design tokens derived from the Figma "Desktop - 7" frame (1440px).
+   Sizes are in rem (Figma px / 16) so the layout scales with the root
+   font-size set in global.css. */
+:root {
+  --color-bg: #111;
+  --color-surface: #fffefd;
+  --color-text: #fffefd;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-line: #5c5c5c;
+  --color-error: #ff8f85;
+
+  --font-sans: 'Host Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Jacquard 24', 'Host Grotesk', serif;
+
+  /* Figma column is 1266px (79.125rem); widened so content fills large screens. */
+  --container: 110rem;
+  /* Close to the Figma 87px side margins. */
+  --gutter: 5.5rem;
+  --header-h: 82px;
+  --radius: 0.3125rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Shared two-column split: text takes 1/3, media or form takes 2/3. */
+  --split-columns: minmax(0, 1fr) minmax(0, 2fr);
+  --split-gap: 2.3125rem;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 1.25rem;
+    --header-h: 68px;
+  }
+}

@@ -1,0 +1,50 @@
+.work {
+  padding-top: 5.6875rem;
+  padding-bottom: 8.375rem;
+}
+
+/* A semicircle in the Work background colour, on the section's top edge.
+   The arrow is centred on that edge: half in the semicircle, half in the section. */
+.work__notch {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 2.5rem;
+  height: 1.25rem;
+  border-radius: 1.25rem 1.25rem 0 0;
+  background: inherit;
+  color: var(--color-black);
+  transform: translateX(-50%);
+}
+
+.work__notch svg {
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin-left: -0.5rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.work__notch:hover svg {
+  transform: translateY(0.1875rem);
+}
+
+.work__list {
+  display: grid;
+  row-gap: 7.625rem;
+  margin-top: 4.6875rem;
+}
+
+@media (max-width: 1024px) {
+  .work {
+    padding-top: 4.5rem;
+    padding-bottom: 6rem;
+  }
+
+  .work__list {
+    row-gap: 5rem;
+    margin-top: 3.5rem;
+  }
+}

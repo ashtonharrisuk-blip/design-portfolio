@@ -1,0 +1,29 @@
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* White icon inside a white outlined circle; fills in on hover. */
+.social-links__link {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+  color: var(--color-white);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.social-links__link svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.social-links__link:hover {
+  background: var(--color-white);
+  color: var(--color-bg);
+}

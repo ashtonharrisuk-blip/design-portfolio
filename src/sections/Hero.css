@@ -1,0 +1,138 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Header + hero fill 94% of the screen, so the top of the Work section
+     peeks in below. */
+  min-height: calc(94svh - var(--header-h) - 1px);
+  padding: 4rem var(--gutter);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 33.4729rem;
+}
+
+.hero__title {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Intro, step 2: the rest of the title block grows from zero height, which
+   pushes the centred wordmark up, while its rows fade in one after another. */
+.hero__reveal {
+  display: grid;
+  grid-template-rows: 1fr;
+  animation: hero-expand 0.8s var(--ease-in-out) 2.2s both;
+}
+
+.hero__reveal-inner {
+  min-height: 0;
+}
+
+.hero__subtitle,
+.hero__cta,
+.hero__disciplines {
+  animation: hero-fade-up 0.6s var(--ease-out) both;
+}
+
+.hero__subtitle {
+  animation-delay: 2.35s;
+}
+
+.hero__cta {
+  animation-delay: 2.5s;
+}
+
+.hero__disciplines {
+  animation-delay: 2.65s;
+}
+
+@keyframes hero-expand {
+  from {
+    grid-template-rows: 0fr;
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+.hero__subtitle {
+  margin-top: 0.375rem;
+  font-size: clamp(1.5rem, 7.4vw, 2.5rem);
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+}
+
+.hero__cta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.hero__tagline {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hero__tagline span {
+  display: block;
+}
+
+.hero__disciplines {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.1875rem;
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero__discipline {
+  display: flex;
+  align-items: center;
+}
+
+.hero__dot {
+  flex: none;
+  width: 0.25rem;
+  max-width: none;
+  margin: 2px 1.125rem 0 1.625rem;
+}
+
+@media (max-width: 600px) {
+  .hero__subtitle {
+    margin-top: 0.25rem;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  .hero__tagline {
+    text-align: center;
+  }
+
+  .hero__disciplines {
+    row-gap: 0.5rem;
+  }
+
+  .hero__dot {
+    margin-inline: 0.625rem;
+  }
+}

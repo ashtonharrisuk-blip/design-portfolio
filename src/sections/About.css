@@ -1,0 +1,70 @@
+.about {
+  padding-top: 7.4375rem;
+  padding-bottom: 6rem;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: var(--split-columns);
+  column-gap: var(--split-gap);
+  margin-top: 5.6875rem;
+}
+
+.about__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about__name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.about__bio {
+  margin-top: 0.375rem;
+  color: var(--section-muted);
+  font-size: 0.75rem;
+}
+
+.about__bio p + p {
+  margin-top: 0.75rem;
+}
+
+.about__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.0625rem;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.about__image {
+  overflow: hidden;
+  aspect-ratio: 844 / 416;
+  border-radius: var(--radius);
+  /* Placeholder fill from Figma, shown until a photo is supplied. */
+  background: #5c7cad;
+}
+
+.about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Crop mostly from the bottom so the head stays in frame. */
+  object-position: 50% 15%;
+}
+
+@media (max-width: 1024px) {
+  .about {
+    padding-top: 4.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .about__content {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 2.5rem;
+    margin-top: 3.5rem;
+  }
+}

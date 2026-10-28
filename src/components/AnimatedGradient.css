@@ -1,0 +1,35 @@
+/* Pinned to the screen behind the page rather than scrolling with its
+   section: it also fills the strip behind the header, and the browser never
+   has to move an animated canvas while other sections slide over it. */
+.animated-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animated-gradient__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Without hardware acceleration: one rendered frame as a still image. */
+.animated-gradient--still {
+  background-size: 100% 100%;
+}
+
+.animated-gradient--still .animated-gradient__canvas {
+  display: none;
+}
+
+/* Browsers without WebGL get a still version of the gradient. */
+.animated-gradient--fallback {
+  background:
+    radial-gradient(circle at 20% 30%, #1f1f1f, transparent 55%),
+    radial-gradient(circle at 80% 70%, #000, transparent 60%);
+}
+
+.animated-gradient--fallback .animated-gradient__canvas {
+  display: none;
+}

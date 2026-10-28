@@ -1,0 +1,66 @@
+.wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Intro, step 1: the "A" fades in centred and holds on its own for a beat,
+   then slides left to its place.
+   Offsets are in SVG units, so they scale with the wordmark.
+   186.7 = (535.566 - 162.1) / 2 centres the "A". */
+.wordmark__a {
+  animation:
+    wordmark-a-in 0.5s ease both,
+    wordmark-slide 0.9s var(--ease-in-out) 1s both;
+}
+
+/* "shton" makes the same slide as the "A", so it always keeps its final
+   distance from it. The letters appear one by one beside the "A" as it moves,
+   each easing in from slightly further right, so nothing ever overlaps it. */
+.wordmark__rest {
+  animation: wordmark-slide 0.9s var(--ease-in-out) 1s both;
+}
+
+.wordmark__rest path {
+  animation: wordmark-letter-in 0.45s var(--ease-out) both;
+}
+
+.wordmark__rest path:nth-child(1) {
+  animation-delay: 1.05s;
+}
+
+.wordmark__rest path:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.wordmark__rest path:nth-child(3) {
+  animation-delay: 1.35s;
+}
+
+.wordmark__rest path:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.wordmark__rest path:nth-child(5) {
+  animation-delay: 1.65s;
+}
+
+@keyframes wordmark-a-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes wordmark-slide {
+  from {
+    transform: translateX(186.7px);
+  }
+}
+
+@keyframes wordmark-letter-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
